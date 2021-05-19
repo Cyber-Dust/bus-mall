@@ -1,0 +1,36 @@
+main {
+  display: grid;
+  grid-template-columns: 100px 250px 250px 250px 250px;
+  grid-template-rows: 1fr 2fr 2fr 1.5fr;
+}
+
+header {
+  grid-column: 1 / 5;
+  grid-row: 1 / 2 ;
+}
+
+aside {
+  grid-column: 1 / 2;
+  grid-row: 2 / 5;
+}
+
+#C {
+  grid-column: 2 / 5 ;
+  grid-row: 2 / 3 ;
+}
+
+#D {
+  grid-column: 2 / 5;
+  grid-row: 3 / 4 ;
+}
+
+
+#H {
+  grid-column: 2 / 5 ;
+  grid-row: 4 / 5 ;
+}
+
+footer {
+  grid-column: 1 / 5;
+  grid-row: 5 / 6 ;
+}
