@@ -13,16 +13,18 @@
   <link rel="stylesheet" href="/CSS/themes.css" type="text/css">
 </head>
 <body>
-  <header>
-    <h1>BUS MALL</h1>
-    <nav>
-     <ul>
-       <li>Home</li>
-       <li></li>
-     </ul>
-    </nav>
-  </header>
+
   <main>
+    <header>
+      <h1>BUS MALL</h1>
+      <!-- <img id="love" src="./img/00-mercedes-benz-future-bus-revolutionary-design-3400x1440.webp"> -->
+      <nav>
+       <ul>
+         <li>Home</li>
+         <li>Cart</li>
+       </ul>
+      </nav>
+    </header>
     <!-- Click Counter -->
     <aside>
       <div id="tally"></div>
@@ -30,7 +32,7 @@
     </aside>
     <!-- Title of Quiz -->
     <section id="C">
-      <h2 id="ProductHeader">Products</h2>
+      <h2 id="Label">Products</h2>
     </section>
     
     <!-- Image Generator -->
@@ -53,12 +55,15 @@
 
     </section>
     <!-- Graph -->
-    <section id="H"></section>
-
+    <section id="H">
+      <canvas id="chart"></canvas>
+      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+    </section>
+    <footer>
+      <p>Created by Dasean Volk</p>
+    </footer>
   </main>
-  <footer></footer>
 </body>
-<canvas id="chart"></canvas>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@3.2.1/dist/chart.min.js"></script>
+
 <script src="./app.js"></script>
 </html>

@@ -1,3 +1,10 @@
-body * {
+body {
+  width: 100%;
+}
+
+main {
+  margin: 0 auto;
+  /* display: block; */
+  width: 1050px;
   
 }

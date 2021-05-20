@@ -1,5 +1,6 @@
 'use strict'
 
+// --------------------------- Global Variables ---------------------------//
 const tally = document.getElementById('tally')
 const results = document.getElementById('results')
 const D = document.getElementById('D')
@@ -19,7 +20,7 @@ let rightPic = null;
 function Product(name, imgPath) {
   this.name = name;
   this.imgPath = imgPath;
-  this.shown = 0;
+  this.times = 0;
   this.votes = 0;
 
   Product.allProducts.push(this);
@@ -27,6 +28,7 @@ function Product(name, imgPath) {
 
 Product.allProducts = [];
 
+// --------------------------- Prototype Methods ---------------------------//
 Product.prototype.renderProduct = function(h2, imageTag) {
   imageTag.src = this.imgPath;
   h2.textContent = this.name;
@@ -51,29 +53,57 @@ function pickProducts() {
   leftPic = Product.allProducts[productOneIndex];
   middlePic = Product.allProducts[productTwoIndex];
   rightPic = Product.allProducts[productThreeIndex];
-  leftPic.shown++;
-  middlePic.shown++;
-  rightPic.shown++;
+  leftPic.times++;
+  middlePic.times++;
+  rightPic.times++;
 }
 
 function renderResults() {
   results.innerHTML = '';
   const h2Elem = document.createElement('h2')
-  h2Elem.textContent = 'Results';
+  h2Elem.textContent = 'Results:';
   results.appendChild(h2Elem);
   for (let product of Product.allProducts) {
     const liElem = document.createElement('li');
-    liElem.textContent = `${product.name} recieved ${product.votes} votes after ${product.shown} showings`;
+    liElem.textContent = `${product.name} had ${product.votes} votes, with a total of ${product.times} views`;
     results.appendChild(liElem);
   }
+}
+
+const displayProduct = function(name, imgPath) {
+  let products = new Product(name, imgPath);
+
+  Product.products.push(product);
+
+  updateStorage();
 }
 
 function makeButton() {
   const button = document.createElement('button');
   button.addEventListener('click', displayResults)
-  button.textContent = 'View tally';
+  button.textContent = 'View Results';
   tally.appendChild(button);
 }
+
+// LOCAL STORAGE //
+
+
+function updateStorage (){
+  const stringifiedProducts = JSON.stringify(Product.allProducts);
+  localStorage.setItem('products', stringifiedProducts);
+}
+
+// function getStuffOut() {
+//  let productsFromStorage = localStorage.getItem('products');
+//  if (productsFromStorage) {
+//    let parsedProducts = JSON.parse(productsFromStorage);
+//    console.log(parsedProducts);
+//    for (let product of parsedProducts) {
+//     displayProduct(products.name, products.imgPath);
+//  }
+// }
+
+// LOCAL STORAGE //
 
 function handleClick(e) {
   console.log('working')
@@ -90,6 +120,7 @@ function handleClick(e) {
         rightPic.votes++;
       }
       pickProducts();
+      
       renderThreeProducts(leftPic, middlePic, rightPic)
     } else {
       alert('Please click an image.')
@@ -97,12 +128,14 @@ function handleClick(e) {
   } else {
       D.removeEventListener('click', handleClick);
       // renderResults();
+      updateStorage();
       makeButton();
   }
 }
 
 function displayResults() {
   renderResults();
+  callChart();
   tally.removeEventListener('click', displayResults)
 }
 
@@ -110,50 +143,49 @@ D.addEventListener('click', handleClick)
 
 new Product('R2D2 Bag', './img/bag.jpeg' );
 new Product('Banana Cutter', './img/banana.jpeg');
-new Product('Toilet Paper Holder', './img/bathroom.jpeg');
-new Product('Rainboots', './img/boots.jpeg');
-new Product('Breakfast Maker', './img/breakfast.jpeg');
+new Product('iPAD Toilet Paper Holder', './img/bathroom.jpeg');
+new Product('Toeless Rainboots', './img/boots.jpeg');
+new Product('Ultimate Breakfast', './img/breakfast.jpeg');
 new Product('Meatball Bubble Gum', './img/bubblegum.jpeg');
-new Product('Uncomfortable Chair', './img/chair.jpeg');
-new Product('Cthulhu Action Figure', './img/cthulhu.jpeg');
-new Product('Dog Duck Beak!', './img/dog-duck.jpeg');
-new Product('Dragon Meat', './img/dragon.jpeg');
-new Product('Pen Untensils', './img/pen.jpeg');
+new Product('Reverse Chair', './img/chair.jpeg');
+new Product('Cthulhu Sleeps', './img/cthulhu.jpeg');
+new Product('Dog Beak', './img/dog-duck.jpeg');
+new Product('Can of Dragon Meat', './img/dragon.jpeg');
+new Product('Pen x Plastic Silverware', './img/pen.jpeg');
 new Product('Pet Sweep', './img/pet-sweep.jpeg');
 new Product('Pizza Scissors', './img/scissors.jpeg');
-new Product('Sleeping Shark', './img/shark.jpeg');
-new Product('Baby Sweep', './img/sweep.png');
+new Product('Shark Mummy Bag', './img/shark.jpeg');
+new Product('Swiss Baby', './img/sweep.png');
 new Product('Tauntaun Sleeping Bag', './img/tauntaun.jpeg');
 new Product('Unicorn Meat', './img/unicorn.jpeg');
-new Product('Self-watering Can', './img/water-can.jpeg');
-new Product('No Spill Wine Glass', './img/wine-glass.jpeg');
-
+new Product('Inception Spout', './img/water-can.jpeg');
+new Product('Spill-less Wine Glass', './img/wine-glass.jpeg');
+// This is where I will call getstuffoutofstroage
+// getStuffOut();
 pickProducts();
 console.log(leftPic);
 console.log(middlePic);
 console.log(rightPic);
 renderThreeProducts(leftPic, middlePic, rightPic);
 
-// Chart
+// Chart //
 
-var ctx = document.getElementById('H').getContext('2d');
-
-
-
-var nameArray = [];
-var voteArray = [];
+var graph = document.getElementById('chart').getContext('2d');
+// Global var
 
 
-console.log(voteArray);
+// console.log(voteArray);
+// Move with other funcitons
 function callChart(){
-  for (let item of Product.allProducts) {
+  var nameArray = [];
+  var voteArray = [];
+ for (let item of Product.allProducts) {
 
     nameArray.push(item.name);
     voteArray.push(item.votes);
     
-    
   }
-var myChart = new Chart(ctx, {
+  var myChart = new Chart(graph, {
   
     type: 'bar',
     data: {
@@ -189,3 +221,7 @@ var myChart = new Chart(ctx, {
     }
 });
 }
+
+// getStuffOut();
+// pickProducts();
+// renderThreeProducts();
