@@ -1,0 +1,36 @@
+h1 {
+  font-size: 5em;
+}
+
+ul {
+  margin-right: 15px;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+/* SECTION D IMAGES HEADERS */
+
+#prodEh2 {
+  font-size: 1.4em;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#prodFh2 {
+  font-size: 1.4em;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+
+#prodGh2 {
+  font-size: 1.4em;
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#Label {
+  font-size: 3em;
+}
