@@ -17,11 +17,11 @@ let leftPic = null;
 let middlePic = null;
 let rightPic = null;
 
-function Product(name, imgPath) {
+function Product(name, imgPath, times, votes) {
   this.name = name;
   this.imgPath = imgPath;
-  this.times = 0;
-  this.votes = 0;
+  this.times = times;
+  this.votes = votes;
 
   Product.allProducts.push(this);
 }
@@ -29,7 +29,7 @@ function Product(name, imgPath) {
 Product.allProducts = [];
 
 // --------------------------- Prototype Methods ---------------------------//
-Product.prototype.renderProduct = function(h2, imageTag) {
+Product.prototype.renderProduct = function (h2, imageTag) {
   imageTag.src = this.imgPath;
   h2.textContent = this.name;
 }
@@ -70,12 +70,12 @@ function renderResults() {
   }
 }
 
-const displayProduct = function(name, imgPath) {
-  let products = new Product(name, imgPath);
+const displayProduct = function (name, imgPath, times, votes) {
+  new Product(name, imgPath, times, votes);
 
-  Product.products.push(product);
+  // Product.allProducts.push(product);
 
-  updateStorage();
+  // updateStorage();
 }
 
 function makeButton() {
@@ -88,20 +88,43 @@ function makeButton() {
 // LOCAL STORAGE //
 
 
-function updateStorage (){
+function updateStorage() {
+  console.log(Product.allProducts);
   const stringifiedProducts = JSON.stringify(Product.allProducts);
   localStorage.setItem('products', stringifiedProducts);
 }
 
-// function getStuffOut() {
-//  let productsFromStorage = localStorage.getItem('products');
-//  if (productsFromStorage) {
-//    let parsedProducts = JSON.parse(productsFromStorage);
-//    console.log(parsedProducts);
-//    for (let product of parsedProducts) {
-//     displayProduct(products.name, products.imgPath);
-//  }
-// }
+function getStuffOut() {
+
+  let productsFromStorage = localStorage.getItem('products');
+  if (productsFromStorage) {
+    let parsedProducts = JSON.parse(productsFromStorage);
+    console.log(parsedProducts, 'Test');
+    for (let products of parsedProducts) {
+      displayProduct(products.name, products.imgPath, products.times, products.votes);
+    }
+  } else {
+    new Product('R2D2 Bag', './img/bag.jpeg', 0, 0);
+    new Product('Banana Cutter', './img/banana.jpeg', 0, 0);
+    new Product('iPAD Toilet Paper Holder', './img/bathroom.jpeg', 0, 0);
+    new Product('Toeless Rainboots', './img/boots.jpeg', 0, 0);
+    new Product('Ultimate Breakfast', './img/breakfast.jpeg', 0, 0);
+    new Product('Meatball Bubble Gum', './img/bubblegum.jpeg', 0, 0);
+    new Product('Reverse Chair', './img/chair.jpeg', 0, 0);
+    new Product('Cthulhu Sleeps', './img/cthulhu.jpeg', 0, 0);
+    new Product('Dog Beak', './img/dog-duck.jpeg', 0, 0);
+    new Product('Can of Dragon Meat', './img/dragon.jpeg', 0, 0);
+    new Product('Pen x Plastic Silverware', './img/pen.jpeg', 0, 0);
+    new Product('Pet Sweep', './img/pet-sweep.jpeg', 0, 0);
+    new Product('Pizza Scissors', './img/scissors.jpeg', 0, 0);
+    new Product('Shark Mummy Bag', './img/shark.jpeg', 0, 0);
+    new Product('Swiss Baby', './img/sweep.png', 0, 0);
+    new Product('Tauntaun Sleeping Bag', './img/tauntaun.jpeg', 0, 0);
+    new Product('Unicorn Meat', './img/unicorn.jpeg', 0, 0);
+    new Product('Inception Spout', './img/water-can.jpeg', 0, 0);
+    new Product('Spill-less Wine Glass', './img/wine-glass.jpeg', 0, 0);
+  }
+}
 
 // LOCAL STORAGE //
 
@@ -120,16 +143,16 @@ function handleClick(e) {
         rightPic.votes++;
       }
       pickProducts();
-      
+
       renderThreeProducts(leftPic, middlePic, rightPic)
     } else {
       alert('Please click an image.')
     }
   } else {
-      D.removeEventListener('click', handleClick);
-      // renderResults();
-      updateStorage();
-      makeButton();
+    D.removeEventListener('click', handleClick);
+    // renderResults();
+    updateStorage();
+    makeButton();
   }
 }
 
@@ -141,27 +164,27 @@ function displayResults() {
 
 D.addEventListener('click', handleClick)
 
-new Product('R2D2 Bag', './img/bag.jpeg' );
-new Product('Banana Cutter', './img/banana.jpeg');
-new Product('iPAD Toilet Paper Holder', './img/bathroom.jpeg');
-new Product('Toeless Rainboots', './img/boots.jpeg');
-new Product('Ultimate Breakfast', './img/breakfast.jpeg');
-new Product('Meatball Bubble Gum', './img/bubblegum.jpeg');
-new Product('Reverse Chair', './img/chair.jpeg');
-new Product('Cthulhu Sleeps', './img/cthulhu.jpeg');
-new Product('Dog Beak', './img/dog-duck.jpeg');
-new Product('Can of Dragon Meat', './img/dragon.jpeg');
-new Product('Pen x Plastic Silverware', './img/pen.jpeg');
-new Product('Pet Sweep', './img/pet-sweep.jpeg');
-new Product('Pizza Scissors', './img/scissors.jpeg');
-new Product('Shark Mummy Bag', './img/shark.jpeg');
-new Product('Swiss Baby', './img/sweep.png');
-new Product('Tauntaun Sleeping Bag', './img/tauntaun.jpeg');
-new Product('Unicorn Meat', './img/unicorn.jpeg');
-new Product('Inception Spout', './img/water-can.jpeg');
-new Product('Spill-less Wine Glass', './img/wine-glass.jpeg');
+// new Product('R2D2 Bag', './img/bag.jpeg', 0, 0);
+// new Product('Banana Cutter', './img/banana.jpeg', 0, 0);
+// new Product('iPAD Toilet Paper Holder', './img/bathroom.jpeg', 0, 0);
+// new Product('Toeless Rainboots', './img/boots.jpeg', 0, 0);
+// new Product('Ultimate Breakfast', './img/breakfast.jpeg', 0, 0);
+// new Product('Meatball Bubble Gum', './img/bubblegum.jpeg', 0, 0);
+// new Product('Reverse Chair', './img/chair.jpeg', 0, 0);
+// new Product('Cthulhu Sleeps', './img/cthulhu.jpeg', 0, 0);
+// new Product('Dog Beak', './img/dog-duck.jpeg', 0, 0);
+// new Product('Can of Dragon Meat', './img/dragon.jpeg', 0, 0);
+// new Product('Pen x Plastic Silverware', './img/pen.jpeg', 0, 0);
+// new Product('Pet Sweep', './img/pet-sweep.jpeg', 0, 0);
+// new Product('Pizza Scissors', './img/scissors.jpeg', 0, 0);
+// new Product('Shark Mummy Bag', './img/shark.jpeg', 0, 0);
+// new Product('Swiss Baby', './img/sweep.png', 0, 0);
+// new Product('Tauntaun Sleeping Bag', './img/tauntaun.jpeg', 0, 0);
+// new Product('Unicorn Meat', './img/unicorn.jpeg', 0, 0);
+// new Product('Inception Spout', './img/water-can.jpeg', 0, 0);
+// new Product('Spill-less Wine Glass', './img/wine-glass.jpeg', 0, 0);
 // This is where I will call getstuffoutofstroage
-// getStuffOut();
+getStuffOut();
 pickProducts();
 console.log(leftPic);
 console.log(middlePic);
@@ -176,50 +199,50 @@ var graph = document.getElementById('chart').getContext('2d');
 
 // console.log(voteArray);
 // Move with other funcitons
-function callChart(){
+function callChart() {
   var nameArray = [];
   var voteArray = [];
- for (let item of Product.allProducts) {
+  for (let item of Product.allProducts) {
 
     nameArray.push(item.name);
     voteArray.push(item.votes);
-    
+
   }
   var myChart = new Chart(graph, {
-  
+
     type: 'bar',
     data: {
       labels: nameArray,
-        datasets: [{
-            label: '# of Votes',
-            data: voteArray,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+      datasets: [{
+        label: '# of Votes',
+        data: voteArray,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(255, 206, 86, 1)',
+          'rgba(75, 192, 192, 1)',
+          'rgba(153, 102, 255, 1)',
+          'rgba(255, 159, 64, 1)'
+        ],
+        borderWidth: 1
+      }]
     },
     options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
+      scales: {
+        y: {
+          beginAtZero: true
         }
+      }
     }
-});
+  });
 }
 
 // getStuffOut();
