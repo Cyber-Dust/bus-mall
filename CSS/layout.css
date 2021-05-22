@@ -84,8 +84,15 @@ aside {
   grid-row: 4 / 5 ;
 }
 
+#chart {
+  margin: 7px;
+}
+
 footer {
+  display: grid;
   grid-column: 1 / 5;
   grid-row: 5 / 6 ;
-  position: sticky;
+  justify-items: center;
+  margin-bottom: 5px;
+  
 }
