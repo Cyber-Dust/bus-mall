@@ -21,7 +21,7 @@ main {
   display: grid;
   height: 1000px;
   grid-template-columns: 300px 250px 250px 250px;
-  grid-template-rows: 1.2fr .3fr 2fr 2fr .5fr;
+  grid-template-rows: 1.2fr .3fr 2fr 2fr .2fr;
 }
 
 header {
@@ -91,7 +91,7 @@ aside {
 
 footer {
   display: grid;
-  grid-column: 1 / 5;
+  grid-column: 2 / 4;
   grid-row: 5 / 6 ;
   justify-items: center;
   align-content: center;
