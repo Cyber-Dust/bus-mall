@@ -3,7 +3,10 @@ h1 {
 }
 
 ul {
-  margin-right: 15px;
+  /* margin-right: 15px; */
+  /* border:  purple 2px solid; */
+  background: linear-gradient(to left, #743ad5, #d53a9d);
+  /* border-image-source: linear-gradient(to left, #743ad5, #d53a9d);  */
 }
 
 li {
@@ -33,4 +36,53 @@ li {
 
 #Label {
   font-size: 3em;
+  border: solid 3px purple;
+  margin: 3px 3px 3px 3px;
+  padding: 3px 3px 3px 3px;
+}
+
+#tally {
+  display: grid;
+  place-self: center stretch;
+}
+
+button {
+  border: 1px solid plum;
+  border-radius: 7px;
+  background: radial-gradient(rgb(214, 141, 214), rgb(68, 22, 66));
+}
+
+nav ul {
+  display: grid;
+  justify-content: center;
+}
+
+header ul li {
+  display: grid;
+  justify-items: center;
+}
+
+
+h1 {
+  display: grid;
+  justify-content: center;
+  letter-spacing: 5px;
+  padding: 5px;
+  margin: 5px;
+  /* how to make a line */
+  /* border-bottom:1px solid purple;
+  line-height: 0.1em;
+  margin:; */
+}
+
+h1 span {
+  background: radial-gradient(purple, black);
+  /* padding:0 10px; */
+  border-radius: 300px;
+}
+
+#D {
+  background: radial-gradient(purple, black);
+  /* padding:0 10px; */
+  border-radius: 300px;
 }
