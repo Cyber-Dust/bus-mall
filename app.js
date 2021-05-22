@@ -128,7 +128,7 @@ function handleClick(e) {
   console.log('working')
   let clickedItem = e.target;
   console.log(clickedItem);
-  if (voteCounter < 5) {
+  if (voteCounter < 25) {
     if (clickedItem === prodEimg || clickedItem === prodFimg || clickedItem === prodGimg) {
       voteCounter++;
       if (clickedItem === prodEimg) {
