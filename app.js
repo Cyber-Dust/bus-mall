@@ -34,7 +34,7 @@ Product.prototype.renderProduct = function (h2, imageTag) {
   h2.textContent = this.name;
 }
 
-function renderThreeProducts(productOne, productTwo, productThree) {
+function renderThreeImages(productOne, productTwo, productThree) {
   productOne.renderProduct(prodEh2, prodEimg);
   productTwo.renderProduct(prodFh2, prodFimg);
   productThree.renderProduct(prodGh2, prodGimg);
@@ -72,10 +72,6 @@ function renderResults() {
 
 const displayProduct = function (name, imgPath, times, votes) {
   new Product(name, imgPath, times, votes);
-
-  // Product.allProducts.push(product);
-
-  // updateStorage();
 }
 
 function makeButton() {
@@ -144,7 +140,7 @@ function handleClick(e) {
       }
       pickProducts();
 
-      renderThreeProducts(leftPic, middlePic, rightPic)
+      renderThreeImages(leftPic, middlePic, rightPic)
     } else {
       alert('Please click an image.')
     }
@@ -164,32 +160,13 @@ function displayResults() {
 
 D.addEventListener('click', handleClick)
 
-// new Product('R2D2 Bag', './img/bag.jpeg', 0, 0);
-// new Product('Banana Cutter', './img/banana.jpeg', 0, 0);
-// new Product('iPAD Toilet Paper Holder', './img/bathroom.jpeg', 0, 0);
-// new Product('Toeless Rainboots', './img/boots.jpeg', 0, 0);
-// new Product('Ultimate Breakfast', './img/breakfast.jpeg', 0, 0);
-// new Product('Meatball Bubble Gum', './img/bubblegum.jpeg', 0, 0);
-// new Product('Reverse Chair', './img/chair.jpeg', 0, 0);
-// new Product('Cthulhu Sleeps', './img/cthulhu.jpeg', 0, 0);
-// new Product('Dog Beak', './img/dog-duck.jpeg', 0, 0);
-// new Product('Can of Dragon Meat', './img/dragon.jpeg', 0, 0);
-// new Product('Pen x Plastic Silverware', './img/pen.jpeg', 0, 0);
-// new Product('Pet Sweep', './img/pet-sweep.jpeg', 0, 0);
-// new Product('Pizza Scissors', './img/scissors.jpeg', 0, 0);
-// new Product('Shark Mummy Bag', './img/shark.jpeg', 0, 0);
-// new Product('Swiss Baby', './img/sweep.png', 0, 0);
-// new Product('Tauntaun Sleeping Bag', './img/tauntaun.jpeg', 0, 0);
-// new Product('Unicorn Meat', './img/unicorn.jpeg', 0, 0);
-// new Product('Inception Spout', './img/water-can.jpeg', 0, 0);
-// new Product('Spill-less Wine Glass', './img/wine-glass.jpeg', 0, 0);
-// This is where I will call getstuffoutofstroage
+
 getStuffOut();
 pickProducts();
 console.log(leftPic);
 console.log(middlePic);
 console.log(rightPic);
-renderThreeProducts(leftPic, middlePic, rightPic);
+renderThreeImages(leftPic, middlePic, rightPic);
 
 // Chart //
 
@@ -247,4 +224,4 @@ function callChart() {
 
 // getStuffOut();
 // pickProducts();
-// renderThreeProducts();
+// renderThreeImages();
