@@ -125,7 +125,7 @@ function getStuffOut() {
 // LOCAL STORAGE //
 
 function handleClick(e) {
-  console.log('working')
+ 
   let clickedItem = e.target;
   console.log(clickedItem);
   if (voteCounter < 25) {
@@ -142,7 +142,7 @@ function handleClick(e) {
 
       renderThreeImages(leftPic, middlePic, rightPic)
     } else {
-      alert('Please click an image.')
+      alert('Choose an image to proceed')
     }
   } else {
     D.removeEventListener('click', handleClick);

@@ -27,7 +27,7 @@ header {
   grid-column: 1 / 5;
   grid-row: 1 / 2 ;
   /* border: purple solid 5px; */
-  background:black;
+  background:linear-gradient(90deg, #743ad5, #d53a9d);
   margin-bottom: 15px;
 }
 

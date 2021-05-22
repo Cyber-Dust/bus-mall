@@ -47,7 +47,7 @@ li {
   border: solid 1px purple;
   margin: 3px 3px 3px 3px;
   padding: 3px 3px 3px 3px;
-  background: radial-gradient(purple, black);
+  background: radial-gradient(
   /* padding:0 10px; */
   border-radius: 300px;
 }
@@ -60,7 +60,7 @@ li {
 button {
   border: 1px solid plum;
   border-radius: 7px;
-  background: radial-gradient(rgb(214, 141, 214), rgb(68, 22, 66));
+  background-color: #743ad5;
 }
 
 nav ul {
