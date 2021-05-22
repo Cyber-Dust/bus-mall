@@ -4,6 +4,7 @@ h1 {
   background: -webkit-linear-gradient(rgb(248, 87, 248), purple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px #d53a9d;
 }
 
 ul {
@@ -17,6 +18,7 @@ li {
   margin-bottom: 5px;
   background: linear-gradient(to left, #743ad5, #d53a9d);
   padding: 3px;
+  border: 0.03px solid  #d53a9d;
   /* border-radius: 50px;
   padding: 10px; */
 }
@@ -47,7 +49,7 @@ li {
   border: solid 1px purple;
   margin: 3px 3px 3px 3px;
   padding: 3px 3px 3px 3px;
-  background: radial-gradient(
+  background: radial-gradient(rgb(248, 87, 248), purple);
   /* padding:0 10px; */
   border-radius: 300px;
 }
@@ -103,8 +105,5 @@ h1 span {
 #dropdown {
   margin-right: 20px;
   /* float: right; */
-  
-  
-
 }
 
