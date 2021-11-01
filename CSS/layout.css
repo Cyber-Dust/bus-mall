@@ -30,6 +30,7 @@ header {
   /* border: purple solid 5px; */
   background:linear-gradient(90deg, #743ad5, #d53a9d);
   margin-bottom: 15px;
+  opacity: 40%;
 }
 
 aside {
