@@ -4,6 +4,7 @@ body {
   background: linear-gradient(black, purple);
   height: 100%;
   font-family: 'Righteous', cursive;
+background-size: cover;
 }
 
 main {
